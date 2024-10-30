@@ -2,17 +2,22 @@
 import AnimateSlideIn from "@/app/components/animate/AnimateSlideIn";
 import Marquee from "@/app/components/animate/Marquee";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import {
+  BadgeEuro,
   Blocks,
   BookOpen,
   Cable,
+  Handshake,
   LampDesk,
   LibraryBig,
+  Medal,
   Shirt,
+  Truck,
 } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { HTMLAttributes } from "react";
 
 const Page = () => {
   const { push } = useRouter();
@@ -65,9 +70,29 @@ const Page = () => {
       link: "/categories/Toys-and-Hobbies",
     },
     {
-      name: "Books and Stationery",
+      name: "Books - Stationery",
       icon: BookOpen,
       link: "/categories/Books-and-Stationery",
+    },
+  ];
+  const backgroundGradients = [
+    "bg-gradient-to-r from-orange-500 light:via-red-50 dark:to-background ",
+    "bg-gradient-to-r from-blue-500 light:via-indigo-50 dark:to-background",
+    "bg-gradient-to-r from-indigo-500 dark:to-background",
+  ];
+
+  const usp = [
+    {
+      icon: Truck,
+    },
+    {
+      icon: BadgeEuro,
+    },
+    {
+      icon: Handshake,
+    },
+    {
+      icon: Medal,
     },
   ];
   return (
@@ -106,7 +131,7 @@ const Page = () => {
           />
         </AnimateSlideIn>
       </div>
-      <div className="bg-muted flex flex-col items-center py-24 bg-mutedx">
+      <div className="bg-muted flex flex-col items-center py-24 ">
         <h2 className="text-4xl font-semibold tracking-tighter">
           Featured Products
         </h2>
@@ -194,13 +219,32 @@ const Page = () => {
 
         <div>
           <AnimateSlideIn dir="left" className="container px-8">
-            <div className="flex  w-full flex-wrap justify-center gap-4 mt-16">
-              {Categories.map((item) => (
+            <div className="w-full grid grid-cols-4 gap-2 justify-center   mt-16">
+              {Categories.slice(0, 4).map((item, i) => (
                 <div
                   key={item?.name}
-                  className="flex h-full w-1/3 relative items-center overflow-hidden hover:bg-background transition-all ease-in-out duration-700   hover:shadow-lg flex-col border rounded-3xl justify-center  p-8"
+                  className={cn(
+                    "flex h-full cursor-pointer   relative items-center overflow-hidden hover:bg-background transition-all ease-in-out duration-700   hover:shadow-lg flex-col border rounded-3xl justify-center  p-8",
+                    backgroundGradients[i % backgroundGradients.length]
+                  )}
                 >
-                  <item.icon className="h-auto w-1/2 text-muted-foreground absolute bottom-0 right-0 translate-x-1/3 translate-y-1/4 -rotate-[45deg]" />
+                  <item.icon className="h-auto w-1/2 text-neutral-400 absolute bottom-0 right-0 translate-x-1/3 translate-y-1/4 -rotate-[45deg] dark:text-neutral-200" />
+                  <div className="w-full h-full relative">
+                    <p className="text-xl font-bold">{item?.name}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="w-full flex justify-center   mt-16">
+              {Categories.slice(4).map((item, i) => (
+                <div
+                  key={item?.name}
+                  className={cn(
+                    "flex h-full cursor-pointer   relative items-center overflow-hidden hover:bg-background transition-all ease-in-out duration-700   hover:shadow-lg flex-col border rounded-3xl justify-center  p-8",
+                    backgroundGradients[(i % backgroundGradients.length) + 1]
+                  )}
+                >
+                  <item.icon className="h-auto w-1/2 text-neutral-400 absolute bottom-0 right-0 translate-x-1/3 translate-y-1/4 -rotate-[45deg] dark:text-neutral-200" />
                   <div className="w-full h-full relative">
                     <p className="text-xl font-bold">{item?.name}</p>
                   </div>
@@ -208,6 +252,19 @@ const Page = () => {
               ))}
             </div>
           </AnimateSlideIn>
+        </div>
+      </div>
+      <div>
+        <div className="flex flex-col items-center py-24">
+          <h2 className="text-4xl font-[600] tracking-tighter">
+            Unique Selling points
+            <span className="text-destructive text-xl">{" (USPs)"}</span>
+          </h2>
+          <p className="text-muted-foreground w-1/3 text-center mt-6">
+            we offer mindblowing perks like free shipping, hassle-free returns,
+            eco-friendly materials, and trusted quality assurance to create a
+            memorable shopping experience. 📰✨
+          </p>
         </div>
       </div>
     </>
