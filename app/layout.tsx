@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ModeToggle } from "@/components/themeToggle";
+import { NavigationMenuDemo } from "./components/Navbar";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -30,9 +31,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="h-screen min-h-screen w-screen max-w-screen flex flex-col relative">
-            <ModeToggle />
-            nav
             <div className="flex-grow w-screen overflow-x-hidden">
+              <ModeToggle />
+              <NavigationMenuDemo />
               {children}
             </div>
             hello

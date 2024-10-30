@@ -1,3 +1,4 @@
+"use client";
 import { useAnimation, motion } from "framer-motion";
 import React, { HTMLAttributes, ReactNode, useEffect } from "react";
 import { useInView } from "react-intersection-observer";

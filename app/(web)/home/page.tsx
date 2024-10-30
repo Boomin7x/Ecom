@@ -3,21 +3,9 @@ import AnimateSlideIn from "@/app/components/animate/AnimateSlideIn";
 import Marquee from "@/app/components/animate/Marquee";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import {
-  BadgeEuro,
-  Blocks,
-  BookOpen,
-  Cable,
-  Handshake,
-  LampDesk,
-  LibraryBig,
-  Medal,
-  Shirt,
-  Truck,
-} from "lucide-react";
+import { Blocks, BookOpen, Cable, LampDesk, Shirt } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { HTMLAttributes } from "react";
 
 const Page = () => {
   const { push } = useRouter();
@@ -77,24 +65,24 @@ const Page = () => {
   ];
   const backgroundGradients = [
     "bg-gradient-to-r from-orange-500 light:via-red-50 dark:to-background ",
-    "bg-gradient-to-r from-blue-500 light:via-indigo-50 dark:to-background",
+    "bg-gradient-to-r from-pink-500 light:via-indigo-50 dark:to-background",
     "bg-gradient-to-r from-indigo-500 dark:to-background",
   ];
 
-  const usp = [
-    {
-      icon: Truck,
-    },
-    {
-      icon: BadgeEuro,
-    },
-    {
-      icon: Handshake,
-    },
-    {
-      icon: Medal,
-    },
-  ];
+  // const usp = [
+  //   {
+  //     icon: Truck,
+  //   },
+  //   {
+  //     icon: BadgeEuro,
+  //   },
+  //   {
+  //     icon: Handshake,
+  //   },
+  //   {
+  //     icon: Medal,
+  //   },
+  // ];
   return (
     <>
       <div className="w-full h-[95vh] flex overflow-hidden flex-col items-center py-16 gap-12 ">
@@ -174,7 +162,7 @@ const Page = () => {
           </div>
         </AnimateSlideIn>
       </div>
-      <div className="py-10">
+      <div id="home" className="pt-[80px]  py-10">
         <h2 className="text-4xl text-center my-4 tracking-tighter font-[600]">
           Best Sellers
         </h2>
