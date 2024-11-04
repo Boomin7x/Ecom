@@ -1,9 +1,7 @@
-"use client";
 import AnimateSlideIn from "@/app/components/animate/AnimateSlideIn";
 import { cn } from "@/lib/utils";
 import { Blocks, BookOpen, Cable, LampDesk, Shirt } from "lucide-react";
-import { useRouter } from "next/navigation";
-import React from "react";
+import Link from "next/link";
 
 const CategoryPage = () => {
   const Categories = [
@@ -15,7 +13,7 @@ const CategoryPage = () => {
     {
       name: "Clothing",
       icon: Shirt,
-      link: "/category/Clothing",
+      link: "/category/fashion",
     },
     {
       name: "Furniture",
@@ -39,7 +37,6 @@ const CategoryPage = () => {
     "bg-gradient-to-r from-indigo-500 dark:to-background",
   ];
 
-  const { push } = useRouter();
   return (
     <div className="py-24">
       <div className=" flex flex-col items-center py-24">
@@ -58,9 +55,10 @@ const CategoryPage = () => {
           <AnimateSlideIn dir="left" className="container px-8">
             <div className="w-full grid grid-cols-4 gap-2 justify-center   mt-16">
               {Categories.slice(0, 4).map((item, i) => (
-                <div
+                <Link
+                  href={item?.link}
                   key={item?.name}
-                  onClick={() => push(item?.link)}
+                  // onClick={() => push(item?.link)}
                   className={cn(
                     "flex h-full cursor-pointer   relative items-center overflow-hidden hover:bg-background transition-all ease-in-out duration-700   hover:shadow-lg flex-col border rounded-3xl justify-center  p-8",
                     backgroundGradients[i % backgroundGradients.length]
@@ -70,7 +68,7 @@ const CategoryPage = () => {
                   <div className="w-full h-full relative">
                     <p className="text-xl font-bold">{item?.name}</p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
             <div className="w-full flex justify-center   mt-16">

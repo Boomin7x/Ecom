@@ -1,25 +1,32 @@
-interface ICategory {
+export type ICategory<T> = {
   name: string;
   image?: string;
-  items: string[];
+  items: T[];
+};
+
+interface ICatItem {
+  name: string;
+  filters: string[];
+  products: string[];
 }
 
-const appliance: ICategory[] = [
+const appliance: ICategory<ICatItem>[] = [
   {
     name: "Major Kitchen appliances",
     image:
       "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6493/6493491_sd.jpg",
     items: [
-      "Refrigerators",
-      "dishwashers",
-      "ranges",
-      "microwaves",
-      "ovens",
-      "blenders",
-      "cooktops",
-      "ventilators",
-      "freezers",
-      "grills",
+      { name: "Refrigerators", filters: [], products: [] },
+      { name: "dishwashers", filters: [], products: [] },
+      { name: "ranges", filters: [], products: [] },
+      { name: "microwaves", filters: [], products: [] },
+      { name: "ovens", filters: [], products: [] },
+      { name: "blenders", filters: [], products: [] },
+      { name: "cooktops", filters: [], products: [] },
+      { name: "ventilators", filters: [], products: [] },
+      { name: "freezers", filters: [], products: [] },
+      { name: "grills", filters: [], products: [] },
+      { name: "all appliances", filters: [], products: [] },
     ],
   },
   {
@@ -27,11 +34,11 @@ const appliance: ICategory[] = [
     image:
       "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6419/6419620_sd.jpg",
     items: [
-      "electric dryers",
-      "gas dryers",
-      "top-loading washers",
-      "front-loading washers",
-      "washer dryer combo",
+      { name: "electric dryers", filters: [], products: [] },
+      { name: "gas dryers", filters: [], products: [] },
+      { name: "top-loading washers", filters: [], products: [] },
+      { name: "front-loading washers", filters: [], products: [] },
+      { name: "washer dryer combo", filters: [], products: [] },
     ],
   },
   {
@@ -39,11 +46,11 @@ const appliance: ICategory[] = [
     image:
       "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6576/6576344_sd.jpg",
     items: [
-      "upright vacuums",
-      "robot vacuums",
-      "steam mop",
-      "handheld and stick vacuums",
-      "all vacuums and floor care",
+      { name: "upright vacuums", filters: [], products: [] },
+      { name: "robot vacuums", filters: [], products: [] },
+      { name: "steam mop", filters: [], products: [] },
+      { name: "handheld and stick vacuums", filters: [], products: [] },
+      { name: "all vacuums and floor care", filters: [], products: [] },
     ],
   },
   {
@@ -51,16 +58,20 @@ const appliance: ICategory[] = [
     image:
       "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6501/6501151cv12d.jpg",
     items: [
-      "air conditioners",
-      "air purifiers",
-      "humidifiers",
-      "space heaters",
-      "all heating, cooling and air conditioning",
+      { name: "air conditioners", filters: [], products: [] },
+      { name: "air purifiers", filters: [], products: [] },
+      { name: "humidifiers", filters: [], products: [] },
+      { name: "space heaters", filters: [], products: [] },
+      {
+        name: "all heating, cooling and air conditioning",
+        filters: [],
+        products: [],
+      },
     ],
   },
 ];
 
-const tv_and_home_theater: ICategory[] = [
+const tv_and_home_theater: ICategory<string>[] = [
   {
     name: "TVs and home theater",
     image:
@@ -95,7 +106,7 @@ const tv_and_home_theater: ICategory[] = [
   },
 ];
 
-const computersAndtablets: ICategory[] = [
+const computersAndtablets: ICategory<string>[] = [
   {
     name: "laptops and desktops",
     image:
@@ -203,7 +214,9 @@ const computersAndtablets: ICategory[] = [
   },
 ];
 
-const cellphones: ICategory[] = [
+// Transformed data
+
+const cellphones: ICategory<string>[] = [
   {
     name: "Iphone",
     image:
@@ -252,13 +265,30 @@ const cellphones: ICategory[] = [
   },
 ];
 
+const transformItems = (categories: ICategory<string>[]) => {
+  return categories.map((category) => ({
+    ...category,
+    items: category.items.map((item) => ({
+      name: item,
+      filters: [],
+      products: [],
+    })),
+  }));
+};
+
+const transformedTvAndHomeTheater: ICategory<ICatItem>[] =
+  transformItems(tv_and_home_theater);
+const transformedComputersAndTablets: ICategory<ICatItem>[] =
+  transformItems(computersAndtablets);
+const transformedCellphones: ICategory<ICatItem>[] = transformItems(cellphones);
+
 const electronics = {
   name: "Electronics",
   items: [
     { name: "appliance", items: appliance },
-    { name: "tv_and_home_theater", items: tv_and_home_theater },
-    { name: "computers_and_tablets", items: computersAndtablets },
-    { name: "cellphones", items: cellphones },
+    { name: "tv_and_home_theater", items: transformedTvAndHomeTheater },
+    { name: "computers_and_tablets", items: transformedComputersAndTablets },
+    { name: "cellphones", items: transformedCellphones },
   ],
 };
 
