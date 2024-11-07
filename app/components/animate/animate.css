@@ -1,0 +1,5 @@
+.myGradient {
+    background-image: linear-gradient(to right, 
+    white, transparent, transparent, transparent, transparent, white
+    );
+}
