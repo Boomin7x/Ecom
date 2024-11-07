@@ -1,3 +1,4 @@
+import floorRobs from "/img/floorRobot.png";
 export type ICategory<T> = {
   name: string;
   image?: string;
@@ -43,8 +44,8 @@ const appliance: ICategory<ICatItem>[] = [
   },
   {
     name: "Vacuums and floor care",
-    image:
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6576/6576344_sd.jpg",
+    image: "/img/floorRobot.png",
+    // image: floorRobs.src,
     items: [
       { name: "upright vacuums", filters: [], products: [] },
       { name: "robot vacuums", filters: [], products: [] },
@@ -55,8 +56,7 @@ const appliance: ICategory<ICatItem>[] = [
   },
   {
     name: "Heating, cooling and air conditioning",
-    image:
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6501/6501151cv12d.jpg",
+    image: "/img/roundFan.png",
     items: [
       { name: "air conditioners", filters: [], products: [] },
       { name: "air purifiers", filters: [], products: [] },
@@ -74,8 +74,7 @@ const appliance: ICategory<ICatItem>[] = [
 const tv_and_home_theater: ICategory<string>[] = [
   {
     name: "TVs and home theater",
-    image:
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6502/6502590_sd.jpg",
+    image: "/img/projector.png",
     items: [
       "Smart TVs",
       "LED TVs",
@@ -90,8 +89,7 @@ const tv_and_home_theater: ICategory<string>[] = [
   },
   {
     name: "home theater Accessories",
-    image:
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6472/6472355ld.jpg",
+    image: "/img/cables.png",
     items: [
       "TV mounts",
       "TV stands",
@@ -109,8 +107,7 @@ const tv_and_home_theater: ICategory<string>[] = [
 const computersAndtablets: ICategory<string>[] = [
   {
     name: "laptops and desktops",
-    image:
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6582/6582846_sd.jpg",
+    image: "/img/laptopCategory.png",
     items: [
       "laptops",
       "desktops",
@@ -125,8 +122,7 @@ const computersAndtablets: ICategory<string>[] = [
   },
   {
     name: "Tablets",
-    image:
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6566/6566195_sd.jpg",
+    image: "/img/tablets.png",
     items: [
       "ipad",
       "android tablets",
@@ -137,8 +133,7 @@ const computersAndtablets: ICategory<string>[] = [
   },
   {
     name: "monitors",
-    image:
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6527/6527046_sd.jpg",
+    image: "/img/monitor.png",
     items: [
       "4k monitors",
       "curved monitors",
@@ -151,8 +146,7 @@ const computersAndtablets: ICategory<string>[] = [
   },
   {
     name: "pc gaming & virtual reality",
-    image:
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/ae73c05a-1674-4ccf-8724-7c800f47ddba.jpg",
+    image: "/img/gamingPC.png",
     items: [
       "gaming desktops",
       "gaming laptops",
@@ -219,8 +213,7 @@ const computersAndtablets: ICategory<string>[] = [
 const cellphones: ICategory<string>[] = [
   {
     name: "Iphone",
-    image:
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/c379ba4c-68af-4410-95ba-c739979192f7.jpg",
+    image: "/img/iphone.png",
     items: [
       "iphone 16 pro family",
       "iphone 16 family",
@@ -240,8 +233,7 @@ const cellphones: ICategory<string>[] = [
   },
   {
     name: "Samsung galaxy",
-    image:
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6570/6570299_sd.jpg",
+    image: "/img/samsung.png",
     items: [
       "Samsung galaxy s24 ",
       "samsung galaxy s series",
@@ -254,8 +246,7 @@ const cellphones: ICategory<string>[] = [
   },
   {
     name: "Google",
-    image:
-      "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/70c08720-7699-43cf-a8c3-a51a492149d7.jpg",
+    image: "/img/google.png",
     items: [
       "Google pixel 9 series",
       "Google pixel 8 series",

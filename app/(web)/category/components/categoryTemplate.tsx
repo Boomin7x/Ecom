@@ -1,3 +1,4 @@
+"use client";
 import React, { FC, HTMLAttributes } from "react";
 import { ICategoryData } from "../../utils/Category/Fasion";
 import AnimateSlideIn from "@/app/components/animate/AnimateSlideIn";
@@ -5,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
 interface Props extends ICategoryData {
   className?: HTMLAttributes<HTMLDivElement>["className"];
@@ -17,10 +19,11 @@ const animateSlideIn: ("left" | "right" | "bottom" | "top")[] = [
 ];
 
 const CategoryTemplate = ({ items, name }: Props) => {
+  const { theme } = useTheme();
   return (
     <div className=" w-full h-full">
       <h2 className="container mx-auto text-center py-6 px-8 text-4xl tracking-tighter font-[600]">
-        {name}
+        {name} {theme === "dark" ? "dark" : "light"}
       </h2>
       <div className="flex flex-col gap-3">
         {items.map((item, i) => (
@@ -52,7 +55,7 @@ const CategoryTemplate = ({ items, name }: Props) => {
                     className="flex w-full capitalize h-full font-bold hover:border hover:bg-background py-6 rounded-3xl hover:shadow-xl flex-col gap-4 items-center justify-center"
                   >
                     {category?.image && (
-                      <div className="h-[10rem] w-[10rem] flex items-center justify-center rounded-3xl border overflow-hidden">
+                      <div className="h-[10rem]  flex items-center justify-center   overflow-hidden">
                         <ImageComponent
                           src={category?.image as string}
                           className=" h-full w-auto object-cover  "
