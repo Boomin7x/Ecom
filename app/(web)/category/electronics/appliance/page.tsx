@@ -4,15 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-interface IProduct {
-  name: string;
-  price: number;
-  image: string;
-  description?: string;
-  model?: string;
-  onSale?: boolean;
-  onSalePrice?: number;
-}
+// interface IProduct {
+//   name: string;
+//   price: number;
+//   image: string;
+//   description?: string;
+//   model?: string;
+//   onSale?: boolean;
+//   onSalePrice?: number;
+// }
 
 const AppliancePage = () => {
   const items = [

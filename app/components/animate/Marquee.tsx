@@ -5,13 +5,13 @@ import { cn } from "@/lib/utils";
 
 export interface IMarquee {
   children: React.ReactNode;
-  order?: keyof typeof animateOrder;
+  order?: unknown;
   classnName?: HTMLAttributes<HTMLDivElement>["className"];
 }
-const animateOrder = {
-  1: { initialX: "100%", delay: 0 },
-  2: { initialX: "200%", delay: 5 },
-};
+// const animateOrder = {
+//   1: { initialX: "100%", delay: 0 },
+//   2: { initialX: "200%", delay: 5 },
+// };
 const Marquee = ({ children, classnName }: IMarquee) => {
   return (
     <div className={cn("flex relative gap-16  overflow-hidden", classnName)}>

@@ -1,12 +1,8 @@
-import React from "react";
-export interface IDetailsPage {
-  params: {
-    id: string;
-  };
-}
-const Appliance = ({ params }: IDetailsPage) => {
-  const id = decodeURIComponent(params.id);
-  return <div>{id}</div>;
+type IDetailsPage = Promise<{ id: string }>;
+const Appliance = async ({ params }: { params: IDetailsPage }) => {
+  const { id } = await params;
+  const newId = decodeURIComponent(id);
+  return <div>{newId}</div>;
 };
 
 export default Appliance;

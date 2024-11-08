@@ -1,4 +1,3 @@
-import floorRobs from "/img/floorRobot.png";
 export type ICategory<T> = {
   name: string;
   image?: string;

@@ -1,6 +1,6 @@
 import { ICategory } from "./Electonics";
 
-const men: ICategory[] = [
+const men: ICategory<string>[] = [
   {
     name: "ready to wear",
     image:
@@ -47,7 +47,7 @@ const men: ICategory[] = [
   },
 ];
 
-const women: ICategory[] = [
+const women: ICategory<string>[] = [
   {
     ...men[0],
     image:
@@ -92,7 +92,7 @@ export interface ICategoryData {
   name: string;
   items: {
     name: string;
-    items: ICategory[];
+    items: ICategory<unknown>[];
   }[];
 }
 export default fashion;
