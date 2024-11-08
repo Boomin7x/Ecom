@@ -11,7 +11,7 @@ import { useTheme } from "next-themes";
 interface Props extends ICategoryData {
   className?: HTMLAttributes<HTMLDivElement>["className"];
 }
-//added cat
+//added cat2 td
 
 const bgColor = ["bg-muted", "bg-background"];
 const animateSlideIn: ("left" | "right" | "bottom" | "top")[] = [
